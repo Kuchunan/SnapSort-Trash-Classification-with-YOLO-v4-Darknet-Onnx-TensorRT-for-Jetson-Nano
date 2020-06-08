@@ -82,7 +82,7 @@ Run the code and the detection will start. Hit `ESC` to exit.
 
 ## Co-Author
 - [Joey Wang](https://github.com/JoeyWangTW)
-- [Yun Liu]()
+- [Yun Liu](https://github.com/yunliu61)
 
 ## Inspiration and Acknowledgments
 - [Trashnet (inspired by)](https://github.com/garythung/trashnet)
