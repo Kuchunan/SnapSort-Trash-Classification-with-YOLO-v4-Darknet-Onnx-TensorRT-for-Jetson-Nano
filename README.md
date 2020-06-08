@@ -25,8 +25,9 @@ Download and unzip all the files into the Yolo build file.
 Ex. mine location address `C:\darknet-master\build\darknet\x64`.
 
 ### Step 2: select a weight to be used
-Change the file location according to the weights you want to use on line 159~162 in `darknet_video-Ku.py`
-**Option 1. **12 classes detection
+Change the file location according to the weights you want to use on line 159~162 in `darknet_video-Ku.py`.
+
+**Option 1.** 12 classes detection
 ```
 configPath = "./backup/0311_files/yolov3_5l-GIX_0304_test.cfg"
 weightPath = "./backup/0311_files/yolov3_5l-GIX_0326_best.weights"
