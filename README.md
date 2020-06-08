@@ -1,16 +1,16 @@
 # SnapSort
-SnapSort is a trash sorting assistant with the YOLO V3 model. It will take in a video feed from the camera and return visual and audio instructions to users. The project is designed to help people sort their waste properly.
+SnapSort is a trash sorting assistant with the YOLO V3 model. It will take in a video feed from the camera and return visual and audio instructions to users. The project is designed to help people sort their waste properly before waste collection. We placed the device, Jetson TX2 or GTX 1080 with a screen, on top of trash cans to guild people on sorting waste.
 
-The project is built for the University of Washington GIX TECHIN 514 Hardware Software Lab 1 course, Microsoft Imagine Cup, and Alaska Environment Innovation Challenges. Code and dataset are collected and built by Yun Liu, Joey Wang and I. 
+The project is built for the University of Washington GIX TECHIN 514 Hardware Software Lab 1 course, Microsoft Imagine Cup, and Alaska Environment Innovation Challenges. The code and dataset are collected and built by Yun Liu, Joey Wang, and I. 
 
-The dataset reaches 63% MAP for 12 different categories on an 80/20 train/test split trained on YOLO v3 object detection model.
+The dataset reaches 63% MAP for 12 different categories on an 80/20 train/test split trained on the YOLO v3 object detection model.
 
 ## Dataset
-The dataset contains XXXX original images including images from Coco Dataset, Google open images v4, and images we collected by ourselves. Images are labeled into 12 classes manually following [Seattle Government's recycling rule](https://www.seattle.gov/utilities/services/recycling/recycle-at-home/where-does-it-go---flyer). After data augmentation, XXXX images are used for training and XXXX images are used for testing. The best training result we got is 63% MAP @ 50% confidence threshold.
+The dataset contains 4000+ original images including images from Coco Dataset, Google open images v4, and images we collected by ourselves. Images are labeled into 12 classes manually following [Seattle Government's recycling rule](https://www.seattle.gov/utilities/services/recycling/recycle-at-home/where-does-it-go---flyer). After data augmentation, 80% of images are used for training and 20% images are used for testing. The best training result we got is 63% MAP @ 50% confidence threshold.
 
 ## Prerequisites
 
-### Intalling Yolo V3
+### Installing Yolo V3
 The Yolo V3 model needs to be installed before using our trained weight. The most Windows-friendly version I found is from [AlexAB](https://github.com/AlexeyAB/darknet). 
 
 ### Installing Python and dependencies
