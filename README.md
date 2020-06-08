@@ -1,5 +1,5 @@
 # SnapSort
-SnapSort is a trash sorting assistant with the YOLO V3 model. It will take in a video feed from the camera and return visual and audio instructions to users. The project is designed to help people sort their waste properly before waste collection. We placed the device, Jetson TX2 or GTX 1080 with a screen, on top of trash cans to guild people on sorting waste.
+SnapSort is a trash sorting assistant with the YOLO V3 model. It will take in a video feed from the camera and return visual and audio instructions to users. The project is designed to help people sort their waste properly before waste collection. We placed the device, Jetson TX2 or GTX 1080 with a screen, on top of trash cans to guide people on sorting waste.
 
 The project is built for the University of Washington GIX TECHIN 514 Hardware Software Lab 1 course, Microsoft Imagine Cup, and Alaska Environment Innovation Challenges. The code and dataset are collected and built by Yun Liu, Joey Wang, and I. 
 
