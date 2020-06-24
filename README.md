@@ -4,6 +4,7 @@ SnapSort is a trash sorting assistant with the YOLO V3 model. It will take in a 
 The project is built for the University of Washington GIX TECHIN 514 Hardware Software Lab 1 course, Microsoft Imagine Cup, and Alaska Environment Innovation Challenges. The code and dataset are collected and built by Yun Liu, Joey Wang, and I. 
 
 The dataset reaches 63% MAP for 12 different categories on an 80/20 train/test split trained on the YOLO v3 object detection model.
+![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151209.png?raw=true)
 
 ## Dataset
 The dataset contains 4000+ original images including images from Coco Dataset, Google open images v4, and images we collected by ourselves. Images are labeled into 12 classes manually following [Seattle Government's recycling rule](https://www.seattle.gov/utilities/services/recycling/recycle-at-home/where-does-it-go---flyer). After data augmentation, 80% of images are used for training and 20% images are used for testing. The best training result we got is 63% MAP @ 50% confidence threshold.
@@ -75,6 +76,7 @@ detections = darknet.detect_image(netMain, metaMain, darknet_image, thresh=0.2,h
 
 ### Step 5: run the code and start detection
 Run the code and the detection will start. Hit `ESC` to exit.
+![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151501.png?raw=true)
 
 ## Built With
 - [Yolo v3 (original author)](https://pjreddie.com/)
