@@ -76,6 +76,7 @@ detections = darknet.detect_image(netMain, metaMain, darknet_image, thresh=0.2,h
 
 ### Step 5: run the code and start detection
 Run the code and the detection will start. Hit `ESC` to exit.
+
 ![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151501.png?raw=true)
 
 ## Built With
