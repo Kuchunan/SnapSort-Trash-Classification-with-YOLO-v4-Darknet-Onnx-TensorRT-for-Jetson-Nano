@@ -8,7 +8,7 @@ The dataset reaches 63% MAP for 12 different categories on an 80/20 train/test s
 ![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151209.png?raw=true)
 
 ## Dataset
-The dataset contains 4600 original images including images from Coco Dataset, Google open images v4, and images we collected by ourselves. Images are labeled into 12 classes manually following [Seattle Government's recycling rule](https://www.seattle.gov/utilities/services/recycling/recycle-at-home/where-does-it-go---flyer). After data augmentation, 80% of images are used for training and 20% images are used for testing. The best training result we got is 63% MAP @ 50% confidence threshold.
+The dataset contains 4600 original images including images from Coco Dataset, Google open images v4, and images we collected by ourselves. Images are labeled into 12 classes manually following [Seattle Government's recycling rule](https://www.seattle.gov/utilities/services/recycling/recycle-at-home/where-does-it-go---flyer). After data augmentation, 80% of images are used for training and 20% of images are used for testing. The best training result we got is 63% MAP @ 50% confidence threshold.
 
 ## Prerequisites
 
