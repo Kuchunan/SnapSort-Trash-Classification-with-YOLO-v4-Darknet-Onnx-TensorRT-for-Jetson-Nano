@@ -91,3 +91,6 @@ Run the code and the detection will start. Hit `ESC` to exit.
 ## Inspiration and Acknowledgments
 - [Trashnet (inspired by)](https://github.com/garythung/trashnet)
 - [NMS](https://www.kdnuggets.com/2019/12/pedestrian-detection-non-maximum-suppression-algorithm.html)
+
+## Video Documentary
+- [The Story of SnapSort - AI trash sorting assistant](https://www.youtube.com/watch?v=aTaK2tVGCpw&feature=youtu.be)
