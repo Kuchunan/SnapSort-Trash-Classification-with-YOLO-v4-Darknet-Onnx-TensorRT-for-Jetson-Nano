@@ -1,3 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.weights filter=lfs diff=lfs merge=lfs -text
+yolov4_GIX_best-416.trt filter=lfs diff=lfs merge=lfs -text
+yolov4_GIX_best-416.onnx filter=lfs diff=lfs merge=lfs -text
