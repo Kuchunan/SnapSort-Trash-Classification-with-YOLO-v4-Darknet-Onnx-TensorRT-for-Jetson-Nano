@@ -5,7 +5,7 @@ SnapSort is a trash sorting assistant with the YOLO V4 model. It will take in a 
 
 The project is built for the University of Washington GIX TECHIN 514 Hardware Software Lab 1 course, Microsoft Imagine Cup, and Alaska Environment Innovation Challenges. The code and dataset are collected and built by Yun Liu, Joey Wang, and me. 
 
-The dataset reaches 71% MAP for 12 different categories on an 80/20 train/test split trained on the YOLO v3 object detection model.
+The dataset reaches 71% MAP for 12 different categories on an 80/20 train/test split trained on the YOLO v4 object detection model.
 
 ![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151209.png?raw=true)
 
@@ -104,7 +104,7 @@ Run the code and the detection will start. Hit `ESC` to exit.
 ![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151501.png?raw=true)
 
 ## Run Snapsort on Jetson Nano
-###Step 1: Format SD card and install Jetpack
+### Step 1: Format SD card and install Jetpack
 Formart a 32GB SD card(32GB or above) and install Jetpack 4.5.1
 [Tutorial on Nvidia.com](https://developer.nvidia.com/embedded/jetpack)
 
