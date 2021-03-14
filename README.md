@@ -106,6 +106,7 @@ Run the code and the detection will start. Hit `ESC` to exit.
 ## Run Snapsort on Jetson Nano
 ### Step 1: Format SD card and install Jetpack
 Formart a 32GB SD card(32GB or above) and install Jetpack 4.5.1
+
 [Tutorial on Nvidia.com](https://developer.nvidia.com/embedded/jetpack)
 
 ### Step 2: Install Onnx and TensorRT
@@ -131,12 +132,12 @@ Make
 - Copy all the files in the "Onnx & TensorRT' folder and paste them to folder “tensorrt_demos/yolo”
 
 ### Step 4:Change Category mapping
-- Download and replace yolo_classes.py in tensorrt_demos/utils
+- Download and replace [yolo_classes.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/yolo_classes.py) in tensorrt_demos/utils
 **Changes:**
 	1. Line 6-21: Replace COCO_CLASSES_LIST with GIX_CLASSES_LIST & GIX_3CLASSES_LIST
 	2. Line 36-39: Add parameter support: category_num=12 & category_num=3
 
-- Download and replace visualization.py in tensorrt_demos/utils
+- Download and replace [visualization.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/visualization.py) in tensorrt_demos/utils
 **Changes:**
 	1. Line 79: Add color_rule list to map with the color of trash bins
 	2. Line 99-102: Add rules to apply to 3 classes and 12 classes
@@ -201,16 +202,17 @@ python3 trt_yolo.py --usb 0 -m yolov4-tiny_GIX-640 --category_num=3
 ```
         set_display(WINDOW_NAME, True)
 ```
-- Save the file.
+- Save the file
 
 ### (Optional) Step 5: Auto-start after Boot
-- Download reboot.sh to ~/ （“Home” folder）
+- Download [reboot.sh](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/reboot.sh) to ~/ （“Home” folder）
 - Click the start button on the upper left corner, search and open “Start-up applications”. 
 - On the “Start-up preference” window, click “Add” 
 - Name: (any)
-- Command: (select reboot.sh)
+- Command: (select [reboot.sh](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/reboot.sh))
 - Click “Add”
-[Reference](https://itsfoss.com/manage-startup-applications-ubuntu/)
+
+	[Reference](https://itsfoss.com/manage-startup-applications-ubuntu/)
 
 
 ## Built With
