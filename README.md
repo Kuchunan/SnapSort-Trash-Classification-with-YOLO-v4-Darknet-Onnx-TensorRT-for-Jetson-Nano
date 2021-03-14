@@ -108,7 +108,7 @@ Run the code and the detection will start. Hit `ESC` to exit.
 Formart a 32GB SD card(32GB or above) and install Jetpack 4.5.1
 [Tutorial on Nvidia.com](https://developer.nvidia.com/embedded/jetpack)
 
-###Step 2: Install Onnx and TensorRT
+### Step 2: Install Onnx and TensorRT
 - Make sure connected to the internet (using an ethernet cable or wifi dongle)
 - Open Command Line terminal
 ```
@@ -130,7 +130,7 @@ Make
 ```
 - Copy all the files in the "Onnx & TensorRT' folder and paste them to folder “tensorrt_demos/yolo”
 
-###Step 4:Change Category mapping
+### Step 4:Change Category mapping
 - Download and replace yolo_classes.py in tensorrt_demos/utils
 **Changes:**
 	1. Line 6-21: Replace COCO_CLASSES_LIST with GIX_CLASSES_LIST & GIX_3CLASSES_LIST
@@ -144,6 +144,7 @@ Make
 **Mapping rule**
 
 | 12 classes               | 3 classes |
+| ------------------------ |---------- |
 | Plastic_soft             | Landfill  |
 | Food_soiled_coated_paper | Landfill  | 
 | Plastic_utensils         | Landfill  |
@@ -158,7 +159,7 @@ Make
 | Paper_towels             | Compost   |
 
 
-###Step 3:Run testing
+### Step 3:Run testing
 - Open Command Line terminal
 - Plug-in a USB webcam
 
@@ -194,15 +195,15 @@ python3 trt_yolo.py --usb 0 -m yolov4-tiny_GIX-640 --category_num=3
 ```
 - "F" for fullscreen
 
-###(Optional)Step 4: Auto fullscreen
+### (Optional) Step 4: Auto fullscreen
 - Double click /tensorrt_demos/trt_yolo.py to edit
-- Add this line to Line #69 (Need 6 blank space for indention)
+- Add this line to Line #69 (Leave 6 blank spaces for indention)
 ```
         set_display(WINDOW_NAME, True)
 ```
 - Save the file.
 
-###(Optional)Step 5: Auto-start after Boot
+### (Optional) Step 5: Auto-start after Boot
 - Download reboot.sh to ~/ （“Home” folder）
 - Click the start button on the upper left corner, search and open “Start-up applications”. 
 - On the “Start-up preference” window, click “Add” 
