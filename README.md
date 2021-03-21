@@ -1,25 +1,32 @@
-# SnapSort
-
-## Introduction
+# SnapSort Introduction
 SnapSort is a trash sorting assistant with the YOLO V4 model. It will take in a video feed from the camera and return visual and audio instructions to users. The project is designed to help people sort their waste properly before waste collection. We placed the device, Jetson Nano or GTX 1080 with a screen, on top of trash cans to guide people on sorting waste.
 
 The project is built for the University of Washington GIX TECHIN 514 Hardware Software Lab 1 course, Microsoft Imagine Cup, and Alaska Environment Innovation Challenges. The code and dataset are collected and built by Yun Liu, Joey Wang, and me. 
 
 The dataset reaches 71% MAP for 12 different categories on an 80/20 train/test split trained on the YOLO v4 object detection model.
 
+I also convert the Snapsort Yolo model to Onnx and TensorRT format for better performance on Jetson Nano.
+
 ![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151209.png?raw=true)
 
-## What's new (2021.03.04)
+# Table of content
+1. [Introduction](#SnapSort-Introduction)
+2. [What's new](#What's-new-(2021.03.04))
+3. [Dataset](#Dataset)
+4. [Running Snapsort on Windows/Linux](#Running-Snapsort-on-Windows/Linux)
+5. [Runing Snapsort on Jetson Nano](#Runing-Snapsort-on-Jetson-Nano)
+6. [Others](#Others)
+
+# What's new (2021.03.04)
 - Add trained weights with Yolo V4, V4 Tiny model
 - Optimized performance for Jetson Nano with Onnx and Tensor RT core
 
-## Dataset
+# Dataset
 The dataset contains 4600 original images including images from Coco Dataset, Google open images v4, and images we collected by ourselves. Images are labeled into 12 classes manually following [Seattle Government's recycling rule](https://www.seattle.gov/utilities/services/recycling/recycle-at-home/where-does-it-go---flyer). After data augmentation, 80% of images are used for training and 20% of images are used for testing. The best training result we got is 71% MAP @ 50% confidence threshold.
 
+# Running Snapsort on Windows/Linux
+To run Snapsort on a Windows device, please install all the dependencies listed below and Darknet Yolo V4 by AlexyAB(see Prerequisites below).
 ## Prerequisites
-
-### Installing Yolo V4
-The Yolo V4 model needs to be installed before using our trained weight. The most Windows-friendly version I found is from [AlexAB](https://github.com/AlexeyAB/darknet). 
 
 ### Installing Python and dependencies
 * [Python 3 and above](https://www.python.org/downloads/)
@@ -27,10 +34,17 @@ The Yolo V4 model needs to be installed before using our trained weight. The mos
 * [Numpy](https://numpy.org/)
 * Winsound
 
-## Usage (Run with Darknet)
+### Installing Yolo V4
+The Yolo V4 model needs to be installed before using our trained weight. The most Windows-friendly version I found is from [AlexAB](https://github.com/AlexeyAB/darknet).
+
+## Usage
 ### Step 1: Download and unzip
 Download and unzip all the files into the Yolo build file.
-Ex. mine location address `C:\darknet-master\build\darknet\x64`.
+My file location `C:\darknet-master\build\darknet\x64`.
+```
+cd C:\darknet-master\build\darknet\x64
+git clone https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano.git
+```
 
 ### Step 2: select a weight to be used
 Change the file location according to the weights you want to use at line 159~162 in `darknet_video-Ku.py`.
@@ -103,10 +117,18 @@ Run the code and the detection will start. Hit `ESC` to exit.
 
 ![alt text](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v3-Darknet/blob/master/Annotation%202020-06-24%20151501.png?raw=true)
 
-## Run Snapsort on Jetson Nano
-### Step 1: Format SD card and install Jetpack
-Formart a 32GB SD card(32GB or above) and install Jetpack 4.5.1
+# Runing Snapsort on Jetson Nano
+## Prerequisites
+### Hardware Preparation
+- Jetson Nano * 1
+- 32G micro SD card
+- Webcam * 1 (Recommend: Logitech C920 HD, higher resolution and low noise will improve performance)
+- 5V DC barrel jack power supply
+- Screen (with power supply and HDMI cable)
+- (Optional) Mouse & Keyboard
 
+### Step 1: Format SD card and install Jetpack
+- Format a 32GB SD card(32GB or above) and install Jetpack 4.5.1
 [Tutorial on Nvidia.com](https://developer.nvidia.com/embedded/jetpack)
 
 ### Step 2: Install Onnx and TensorRT
@@ -129,19 +151,22 @@ cd ..
 cd plugins
 Make
 ```
-- Copy all the files in the "Onnx & TensorRT' folder and paste them to folder “tensorrt_demos/yolo”
+### Step 3: Download models in Onnx & TensorRT
+- Download all the files in the "Onnx & TensorRT' folder [(Click here)](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/tree/master/Onnx%20%26%20TensorRT.git) to folder “~/tensorrt_demos/yolo”
 
-### Step 4:Change Category mapping
-- Download and replace [yolo_classes.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/yolo_classes.py) in tensorrt_demos/utils
-**Changes:**
+
+### Step 4:Download revised Python script
+- Download [yolo_classes.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/yolo_classes.py) and [visualization.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/visualization.py) to ~/tensorrt_demos/utils
+
+	**Changes in [yolo_classes.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/yolo_classes.py) from jkjung-avt's file:**
 	1. Line 6-21: Replace COCO_CLASSES_LIST with GIX_CLASSES_LIST & GIX_3CLASSES_LIST
 	2. Line 36-39: Add parameter support: category_num=12 & category_num=3
 
-- Download and replace [visualization.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/visualization.py) in tensorrt_demos/utils
-**Changes:**
+	**Changes in [visualization.py](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/visualization.py) from jkjung-avt's file:**
 	1. Line 79: Add color_rule list to map with the color of trash bins
 	2. Line 99-102: Add rules to apply to 3 classes and 12 classes
-
+<br />
+<br />
 **Mapping rule**
 
 | 12 classes               | 3 classes |
@@ -158,9 +183,10 @@ Make
 | Metal                    | Recycle   |
 | Food_scrapes             | Compost   |
 | Paper_towels             | Compost   |
+<br />
 
-
-### Step 3:Run testing
+## Usage
+### Step 1:Run testing
 - Open Command Line terminal
 - Plug-in a USB webcam
 
@@ -196,7 +222,14 @@ python3 trt_yolo.py --usb 0 -m yolov4-tiny_GIX-640 --category_num=3
 ```
 - "F" for fullscreen
 
-### (Optional) Step 4: Auto fullscreen
+| Model | Resolution | Fps on Jetson nano |
+| ----  |----------- | -------------------|
+| Yolo v4 Tiny | 416x416 | ~19|
+| Yolo v4 | 416x416 | ~4 |
+| Yolo V4 | 416x416| ~3.x |
+<br />
+
+### (Optional) Step 2: Auto fullscreen
 - Double click /tensorrt_demos/trt_yolo.py to edit
 - Add this line to Line #69 (Leave 6 blank spaces for indention)
 ```
@@ -204,7 +237,7 @@ python3 trt_yolo.py --usb 0 -m yolov4-tiny_GIX-640 --category_num=3
 ```
 - Save the file
 
-### (Optional) Step 5: Auto-start after Boot
+### (Optional) Step 3: Auto-start after Boot
 - Download [reboot.sh](https://github.com/Kuchunan/SnapSort-Trash-Classification-with-YOLO-v4-Darknet-Onnx-TensorRT-for-Jetson-Nano/blob/master/reboot.sh) to ~/ （“Home” folder）
 - Click the start button on the upper left corner, search and open “Start-up applications”. 
 - On the “Start-up preference” window, click “Add” 
@@ -214,7 +247,7 @@ python3 trt_yolo.py --usb 0 -m yolov4-tiny_GIX-640 --category_num=3
 
 	[Reference](https://itsfoss.com/manage-startup-applications-ubuntu/)
 
-
+# Others
 ## Built With
 - [Yolo v3 (original author)](https://pjreddie.com/)
 - [AlexAB](https://github.com/AlexeyAB/darknet)
